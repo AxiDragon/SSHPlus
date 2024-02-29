@@ -50,6 +50,7 @@ function markAsVisited(propertyDiv) {
 
     propertyDiv.querySelector('.card__header').appendChild(statusText);
     propertyDiv.querySelector('.card__image').style.opacity = '.35';
+    propertyDiv.parentNode.appendChild(propertyDiv);
 }
 
 function savePropertyUrl(url) {
