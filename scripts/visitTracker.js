@@ -17,8 +17,6 @@ function isVisitTrackerLoaded() {
 }
 
 function initVisitTracker() {
-    console.log(checkedPropertyTags);
-
     const propertyDivs = document.getElementsByClassName('card--property');
 
     for (let i = 0; i < propertyDivs.length; i++) {
