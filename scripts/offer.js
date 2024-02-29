@@ -1,4 +1,4 @@
-const offerUrls = ["https://www.sshxl.nl/en/rental-offer/long-stay/", "https://www.sshxl.nl/nl/aanbod/"];
+const offerUrls = ['https://www.sshxl.nl/en/rental-offer/long-stay/', 'https://www.sshxl.nl/nl/aanbod/'];
 document.addEventListener('hrefChanged', (e) => {
     if (isCorrectUrl(e.detail.href, offerUrls)) {
         window.checkLoaded(isOfferLoaded, initOffer)

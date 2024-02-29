@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "SSH+",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "action": {
         "default_popup": "sshplus.html",
         "default_icon": "sshplus.png"
@@ -14,6 +14,7 @@
             "js": [
                 "scripts/loadChangeChecker.js",
                 "scripts/positionChecker.js",
+                "scripts/visitTracker.js",
                 "scripts/replies.js",
                 "scripts/offer.js"
             ]
