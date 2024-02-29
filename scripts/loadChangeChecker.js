@@ -5,7 +5,6 @@ setInterval(() => {
     if (currentPage !== window.location.href) {
         currentPage = window.location.href;
         document.dispatchEvent(new Event('hrefChanged'));
-        console.log('hrefChanged event dispatched');
     }
 }, 500);
 
@@ -19,7 +18,6 @@ function checkLoaded(condition, ifLoaded) {
     }, 100);
 
     const timeOut = setTimeout(() => {
-        console.log('Script timed out');
         clearInterval(checkLoaded);
     }, 5000);
 }

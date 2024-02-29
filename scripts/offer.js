@@ -7,7 +7,6 @@ function isLoaded() {
         return false;
     }
 
-    console.log(iconList.length);
     //if the icon list is not length 5, the page is not loaded or the user is not logged in
     //it shouldn't be greater than 5, but it's a failsafe
     return iconList[0].getElementsByTagName('li').length >= 5;
