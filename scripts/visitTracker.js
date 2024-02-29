@@ -1,6 +1,6 @@
 const propertyUrls = ['https://www.sshxl.nl/nl/aanbod', 'https://www.sshxl.nl/en/rental-offer/long-stay'];
 
-let checkedPropertyUrls = JSON.parse(localStorage.getItem('checkedPropertyUrls')) || [];
+let checkedPropertyTags = JSON.parse(localStorage.getItem('checkedPropertyTags')) || [];
 
 document.addEventListener('hrefChanged', (e) => {
     if (isCorrectUrl(e.detail.href, propertyUrls)) {
@@ -17,6 +17,8 @@ function isVisitTrackerLoaded() {
 }
 
 function initVisitTracker() {
+    console.log(checkedPropertyTags);
+
     const propertyDivs = document.getElementsByClassName('card--property');
 
     for (let i = 0; i < propertyDivs.length; i++) {
@@ -26,7 +28,9 @@ function initVisitTracker() {
 
 function processOffer(propertyDiv) {
     const propertyUrl = propertyDiv.querySelector('a').href;
-    if (checkedPropertyUrls.includes(propertyUrl)) {
+    const propertyTag = propertyUrl.split('/').pop();
+
+    if (checkedPropertyTags.includes(propertyTag)) {
         markAsVisited(propertyDiv);
     }
 }
@@ -51,8 +55,10 @@ function markAsVisited(propertyDiv) {
 }
 
 function savePropertyUrl(url) {
-    if (!checkedPropertyUrls.includes(url)) {
-        checkedPropertyUrls.push(url);
-        localStorage.setItem('checkedPropertyUrls', JSON.stringify(checkedPropertyUrls));
+    const propertyTag = url.split('/').pop();
+
+    if (!checkedPropertyTags.includes(propertyTag)) {
+        checkedPropertyTags.push(propertyTag);
+        localStorage.setItem('checkedPropertyTags', JSON.stringify(checkedPropertyTags));
     }
 }
