@@ -27,5 +27,5 @@ function initOffer() {
     positionText.innerHTML = positionText.innerHTML.replace(numberText, '<b>' + numberText + '</b>');
 
     const position = parseInt(numberText);
-    positionText.querySelector('b').style.color = window.getPositionColor(position);
+    positionText.style.color = window.getPositionColor(position);
 }

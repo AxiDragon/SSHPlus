@@ -6,7 +6,7 @@ function getPositionColor(position) {
         return 'red';
     }
     else if (position > softPositionThreshold) {
-        return 'orange';
+        return '#ff4000';
     }
     else {
         return 'green';

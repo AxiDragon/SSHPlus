@@ -48,11 +48,11 @@ function processPosition(positionDiv) {
         return;
     }
 
-    const paragraph = positionDiv.querySelector('p');
-    const positionText = paragraph.querySelector('em');
+    const positionParagraph = positionDiv.querySelector('p');
+    const positionText = positionParagraph.querySelector('em');
     const position = parseInt(positionText.innerText);
 
-    positionText.style.color = window.getPositionColor(position);
+    positionParagraph.style.color = window.getPositionColor(position);
 }
 
 function isReactionClosed(positionDiv) {
