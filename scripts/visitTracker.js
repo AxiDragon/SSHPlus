@@ -34,7 +34,7 @@ function processOffer(propertyDiv) {
 function markAsVisited(propertyDiv) {
     const statusText = document.createElement('div');
     statusText.classList.add('price-tag', 'tag--m');
-    statusText.innerText = 'VISITED';
+    statusText.innerText = seenText.getTranslation();
     statusText.style = `background: #fff;
     color: #6f2282;
     border-radius: 2px;
