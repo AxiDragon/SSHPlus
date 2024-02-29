@@ -16,7 +16,7 @@ const loadingText = new Translation('The reaction is loading... Just a moment!',
 const replyUrls = ["https://www.sshxl.nl/en/mijn-ssh/applications", "https://www.sshxl.nl/nl/mijn-ssh/reacties"];
 document.addEventListener('hrefChanged', (e) => {
     if (isCorrectUrl(e.detail.href, replyUrls)) {
-        checkLoaded(isRepliesLoaded, initReplies)
+        checkLoaded(isRepliesLoaded, initReplies);
     }
 });
 
