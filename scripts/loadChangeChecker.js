@@ -15,7 +15,7 @@ function checkLoaded(condition, ifLoaded) {
             clearTimeout(timeOut);
             ifLoaded();
         }
-    }, 100);
+    }, 50);
 
     const timeOut = setTimeout(() => {
         clearInterval(checkLoaded);
