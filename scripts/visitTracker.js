@@ -2,6 +2,10 @@ const propertyUrls = ['https://www.sshxl.nl/nl/aanbod', 'https://www.sshxl.nl/en
 
 let checkedPropertyTags = JSON.parse(localStorage.getItem('checkedPropertyTags')) || [];
 
+if (isCorrectUrl(window.location.href, offerUrls)) {
+    savePropertyUrl(window.location.href);
+}
+
 document.addEventListener('hrefChanged', (e) => {
     if (isCorrectUrl(e.detail.href, propertyUrls)) {
         checkLoaded(isVisitTrackerLoaded, initVisitTracker)
@@ -18,9 +22,16 @@ function isVisitTrackerLoaded() {
 
 function initVisitTracker() {
     const propertyDivs = document.getElementsByClassName('card--property');
+    const markedProperties = [];
 
     for (let i = 0; i < propertyDivs.length; i++) {
-        processOffer(propertyDivs[i]);
+        if (processOffer(propertyDivs[i])) {
+            markedProperties.push(propertyDivs[i]);
+        }
+    }
+
+    for (let i = 0; i < markedProperties.length; i++) {
+        markedProperties[i].parentNode.appendChild(markedProperties[i]);
     }
 }
 
@@ -30,7 +41,10 @@ function processOffer(propertyDiv) {
 
     if (checkedPropertyTags.includes(propertyTag)) {
         markAsVisited(propertyDiv);
+        return true;
     }
+
+    return false;
 }
 
 function markAsVisited(propertyDiv) {
@@ -50,7 +64,6 @@ function markAsVisited(propertyDiv) {
 
     propertyDiv.querySelector('.card__header').appendChild(statusText);
     propertyDiv.querySelector('.card__image').style.opacity = '.35';
-    propertyDiv.parentNode.appendChild(propertyDiv);
 }
 
 function savePropertyUrl(url) {
