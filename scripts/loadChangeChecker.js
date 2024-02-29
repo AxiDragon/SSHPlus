@@ -6,7 +6,7 @@ setInterval(() => {
         currentPage = window.location.href;
         document.dispatchEvent(new CustomEvent('hrefChanged', { detail: { href: window.location.href } }));
     }
-}, 500);
+}, 250);
 
 function checkLoaded(condition, ifLoaded) {
     const checkLoaded = setInterval(() => {
