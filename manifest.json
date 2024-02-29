@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "SSH+",
-    "version": "1.0",
+    "version": "1.0.1",
     "action": {
         "default_popup": "sshplus.html",
         "default_icon": "sshplus.png"
@@ -9,23 +9,12 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.sshxl.nl/en/mijn-ssh/applications",
-                "https://www.sshxl.nl/nl/mijn-ssh/reacties"
+                "https://www.sshxl.nl/*"
             ],
             "js": [
                 "scripts/loadChangeChecker.js",
                 "scripts/positionChecker.js",
-                "scripts/replies.js"
-            ]
-        },
-        {
-            "matches": [
-                "https://www.sshxl.nl/en/rental-offer/long-stay/*",
-                "https://www.sshxl.nl/nl/aanbod/*"
-            ],
-            "js": [
-                "scripts/loadChangeChecker.js",
-                "scripts/positionChecker.js",
+                "scripts/replies.js",
                 "scripts/offer.js"
             ]
         }

@@ -1,6 +1,12 @@
-document.addEventListener('hrefChanged', () => window.checkLoaded(isLoaded, init));
+const offerUrls = ["https://www.sshxl.nl/en/rental-offer/long-stay/", "https://www.sshxl.nl/nl/aanbod/"];
+document.addEventListener('hrefChanged', (e) => {
+    if (isCorrectUrl(e.detail.href, offerUrls)) {
+        console.log('correct url for offer');
+        window.checkLoaded(isOfferLoaded, initOffer)
+    }
+});
 
-function isLoaded() {
+function isOfferLoaded() {
     const iconList = document.getElementsByClassName('list--iconed');
 
     if (iconList === undefined || iconList.length === 0) {
@@ -12,7 +18,7 @@ function isLoaded() {
     return iconList[0].getElementsByTagName('li').length >= 5;
 }
 
-function init() {
+function initOffer() {
     const detailList = document.getElementsByClassName('list--iconed')[0];
 
     const details = detailList.getElementsByTagName('li');

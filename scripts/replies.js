@@ -1,11 +1,3 @@
-setInterval(() => {
-    //deals with SPA
-    if (currentPage !== window.location.href) {
-        currentPage = window.location.href;
-        loadPage();
-    }
-}, 500);
-
 class Translation {
     constructor(english, dutch) {
         this.en = english;
@@ -21,9 +13,14 @@ const language = getLanguage();
 
 const loadingText = new Translation('The reaction is loading... Just a moment!', 'De reactie wordt geladen... Heel even geduld!');
 
-document.addEventListener('hrefChanged', () => window.checkLoaded(isLoaded, init));
+const replyUrls = ["https://www.sshxl.nl/en/mijn-ssh/applications", "https://www.sshxl.nl/nl/mijn-ssh/reacties"];
+document.addEventListener('hrefChanged', (e) => {
+    if (isCorrectUrl(e.detail.href, replyUrls)) {
+        checkLoaded(isRepliesLoaded, initReplies)
+    }
+});
 
-function isLoaded() {
+function isRepliesLoaded() {
     const positionTexts = document.getElementsByClassName('teaser__desc');
 
     if (positionTexts.length > 0) {
@@ -37,7 +34,7 @@ function isLoaded() {
     return false;
 }
 
-function init() {
+function initReplies() {
     const positionTexts = document.getElementsByClassName('teaser__desc');
 
     for (let i = 0; i < positionTexts.length; i++) {

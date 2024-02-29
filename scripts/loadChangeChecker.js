@@ -4,7 +4,7 @@ setInterval(() => {
     //deals with SPA
     if (currentPage !== window.location.href) {
         currentPage = window.location.href;
-        document.dispatchEvent(new Event('hrefChanged'));
+        document.dispatchEvent(new CustomEvent('hrefChanged', { detail: { href: window.location.href } }));
     }
 }, 500);
 
@@ -22,4 +22,6 @@ function checkLoaded(condition, ifLoaded) {
     }, 5000);
 }
 
-window.checkLoaded = checkLoaded;
+function isCorrectUrl(url, urlArray) {
+    return urlArray.some(offerUrl => url.includes(offerUrl));
+}
