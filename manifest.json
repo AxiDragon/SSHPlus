@@ -15,14 +15,14 @@
                 "https://www.sshxl.nl/*"
             ],
             "js": [
-                "scripts/loadChangeChecker.js",
-                "scripts/positionChecker.js",
-                "scripts/language.js",
-                "scripts/replies.js",
-                "scripts/offer.js",
-                "scripts/visitTracker.js",
-                "scripts/propertyFilter.js",
-                "scripts/popupHandler.js"
+                "scripts/content/loadChangeChecker.js",
+                "scripts/content/positionChecker.js",
+                "scripts/content/language.js",
+                "scripts/content/replies.js",
+                "scripts/content/offer.js",
+                "scripts/content/visitTracker.js",
+                "scripts/content/propertyFilter.js",
+                "scripts/content/popupHandler.js"
             ]
         }
     ]

@@ -21,7 +21,7 @@ async function init() {
     });
 }
 
-async function isOnSSH() {
+export async function isOnSSH() {
     let currentUrl = await getUrl();
     return currentUrl.includes('https://www.sshxl.nl/');
 }
