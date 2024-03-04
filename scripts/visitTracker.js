@@ -33,6 +33,8 @@ function initVisitTracker() {
     for (let i = 0; i < markedProperties.length; i++) {
         markedProperties[i].parentNode.appendChild(markedProperties[i]);
     }
+
+    initPropertyFilter();
 }
 
 function processOffer(propertyDiv) {

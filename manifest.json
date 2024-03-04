@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "SSH+",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "permissions": [
         "tabs"
     ],
@@ -21,6 +21,7 @@
                 "scripts/replies.js",
                 "scripts/offer.js",
                 "scripts/visitTracker.js",
+                "scripts/propertyFilter.js",
                 "scripts/popupHandler.js"
             ]
         }
