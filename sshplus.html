@@ -9,8 +9,36 @@
     <img src="sshplus.png">
     <div id="settings">
         <button id="reset-property">Clear seen properties</button>
+        <h2 style="margin-bottom: 0px;">City Filter</h2>
+        <label><input type="checkbox" id="enable-city-filter">Enabled</label>
+        <div id="city-filter">
+            <label for="filter-mode">Filter mode:</label>
+            <select id="filter-mode">
+                <option value="exclude">Exclude</option>
+                <option value="include">Include</option>
+            </select>
+            </br>
+            <label><input type="checkbox" value="Amersfoort"> Amersfoort</label>
+            </br>
+            <label><input type="checkbox" value="Bunnik"> Bunnik</label>
+            </br>
+            <label><input type="checkbox" value="Groningen"> Groningen</label>
+            </br>
+            <label><input type="checkbox" value="Utrecht"> Utrecht</label>
+            </br>
+            <label><input type="checkbox" value="Rotterdam"> Rotterdam</label>
+            </br>
+            <label><input type="checkbox" value="Tilburg"> Tilburg</label>
+            </br>
+            <label><input type="checkbox" value="Zeist"> Zeist</label>
+            </br>
+            <label><input type="checkbox" value="Zwolle"> Zwolle</label>
+        </div>
     </div>
 </body>
-<script src="scripts/onSSHChecker.js"></script>
+<script src="scripts/popup/onSSHChecker.js" type="module"></script>
+<script src="scripts/popup/cityFilter.js" type="module"></script>
+<script src="scripts/popup/propertyResetter.js" type="module"></script>
+<script src="scripts/popup/popup.js" type="module"></script>
 
 </html>

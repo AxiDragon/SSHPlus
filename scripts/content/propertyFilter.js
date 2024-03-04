@@ -1,16 +1,21 @@
-let propertyFilter = ['Zwolle', 'Rotterdam', 'Tilburg', 'Groningen'];
-let mode = 'exclude'; // 'include' or 'exclude' 
+let cityFilter;
 
-console.log('Property filter loaded');
+chrome.runtime.sendMessage({ message: 'getCityFilter' }, function (response) {
+    cityFilter = response;
+});
 
 //called by visitTracker.js
+//cityFilter should be gotten from storage before this function is called
+//cause of SSH's loading time this should be fine
 function initPropertyFilter() {
-    console.log('init property filter');
+    if (!cityFilter.enabled)
+        return;
 
     const propertyDivs = document.getElementsByClassName('card--property');
     const filteredProperties = [];
 
     for (let i = 0; i < propertyDivs.length; i++) {
+        console.log(propertyDivs[i]);
         if (shouldFilterProperty(propertyDivs[i])) {
             filteredProperties.push(propertyDivs[i]);
         }
@@ -25,7 +30,9 @@ function shouldFilterProperty(propertyDiv) {
     const propertyTitle = propertyDiv.querySelector('.card__title').innerText;
     const propertyCity = propertyTitle.split(' ').pop();
 
-    const inFilter = propertyFilter.includes(propertyCity);
+    const inFilter = cityFilter.selected.includes(propertyCity);
 
-    return mode === 'exclude' ? inFilter : !inFilter;
+    console.log(cityFilter.mode, inFilter, propertyCity, cityFilter.selected, propertyTitle);
+
+    return cityFilter.mode === 'exclude' ? inFilter : !inFilter;
 }
