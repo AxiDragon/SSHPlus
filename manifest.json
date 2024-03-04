@@ -1,7 +1,10 @@
 {
     "manifest_version": 3,
     "name": "SSH+",
-    "version": "1.2.4",
+    "version": "1.3.0",
+    "permissions": [
+        "tabs"
+    ],
     "action": {
         "default_popup": "sshplus.html",
         "default_icon": "sshplus.png"
@@ -17,7 +20,8 @@
                 "scripts/language.js",
                 "scripts/replies.js",
                 "scripts/offer.js",
-                "scripts/visitTracker.js"
+                "scripts/visitTracker.js",
+                "scripts/popupHandler.js"
             ]
         }
     ]
