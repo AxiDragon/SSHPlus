@@ -1,11 +1,17 @@
+import { reload } from "./reloader.js";
+
 const cityFilter = document.getElementById('city-filter');
 const enableCheckbox = document.getElementById('enable-city-filter');
 const filterMode = document.getElementById('filter-mode');
 const cityCheckboxes = cityFilter.querySelectorAll(':scope input[type="checkbox"]');
 
+let initialized = false;
+
 export function initCityFilter() {
-    initializeListeners();
     recoverSave();
+    initializeListeners();
+
+    initialized = true;
 }
 
 function initializeListeners() {
@@ -26,7 +32,12 @@ function recoverSave() {
         }
 
         enableCheckbox.checked = result.cityFilterEnabled;
-        enableCheckboxChanged();
+
+        if (enableCheckbox.checked) {
+            cityFilter.style.display = 'block';
+        } else {
+            cityFilter.style.display = 'none';
+        }
     });
 
     chrome.storage.sync.get(['cityFilterMode'], function (result) {
@@ -48,20 +59,32 @@ function recoverSave() {
     });
 }
 
+function tryReload() {
+    if (initialized) {
+        reload();
+    }
+}
+
 function updateSelectedCities() {
     const selectedCities = Array.from(cityCheckboxes)
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value);
 
-    chrome.storage.sync.set({ selectedCities: selectedCities });
+    chrome.storage.sync.set({ selectedCities: selectedCities }, function () {
+        tryReload();
+    });
 }
 
 function filterModeChanged() {
-    chrome.storage.sync.set({ cityFilterMode: filterMode.value });
+    chrome.storage.sync.set({ cityFilterMode: filterMode.value }, function () {
+        tryReload();
+    });
 }
 
 function enableCheckboxChanged() {
-    chrome.storage.sync.set({ cityFilterEnabled: enableCheckbox.checked });
+    chrome.storage.sync.set({ cityFilterEnabled: enableCheckbox.checked }, function () {
+        tryReload();
+    });
 
     if (enableCheckbox.checked) {
         cityFilter.style.display = 'block';
