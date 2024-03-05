@@ -11,13 +11,9 @@ const filterMode = document.getElementById('filter-mode');
 
 const cityCheckboxes = cityFilterSettings.querySelectorAll(':scope input[type="checkbox"]');
 
-let initialized = false;
-
 export function initCityFilter() {
     recoverSave();
     initializeListeners();
-
-    initialized = true;
 }
 
 function initializeListeners() {
@@ -89,12 +85,6 @@ function recoverSave() {
     });
 }
 
-function tryReload() {
-    if (initialized) {
-        reload();
-    }
-}
-
 function updateDisplay() {
     if (displayed) {
         cityFilterContainer.style.display = 'block';
@@ -111,21 +101,15 @@ function updateSelectedCities() {
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value);
 
-    chrome.storage.sync.set({ selectedCities: selectedCities }, function () {
-        tryReload();
-    });
+    chrome.storage.sync.set({ selectedCities: selectedCities }, reload);
 }
 
 function filterModeChanged() {
-    chrome.storage.sync.set({ cityFilterMode: filterMode.value }, function () {
-        tryReload();
-    });
+    chrome.storage.sync.set({ cityFilterMode: filterMode.value }, reload);
 }
 
 function enableCheckboxChanged() {
-    chrome.storage.sync.set({ cityFilterEnabled: enableCheckbox.checked }, function () {
-        tryReload();
-    });
+    chrome.storage.sync.set({ cityFilterEnabled: enableCheckbox.checked }, reload);
 
     if (enableCheckbox.checked) {
         cityFilterSettings.style.display = 'block';
