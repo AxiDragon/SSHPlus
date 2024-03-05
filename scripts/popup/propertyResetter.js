@@ -6,7 +6,8 @@ export function initPropertyResetter() {
             if (tabs.length === 0) {
                 return;
             }
-            chrome.tabs.sendMessage(tabs[0].id, { action: 'wipeProperties' });
+
+            chrome.tabs.sendMessage(tabs[0].id, { message: 'wipeProperties' });
         });
     });
 }

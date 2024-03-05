@@ -1,7 +1,13 @@
 let cityFilter;
 
-chrome.runtime.sendMessage({ message: 'getCityFilter' }, function (response) {
-    cityFilter = response;
+chrome.runtime.sendMessage({ message: 'get', key: ['cityFilterEnabled', 'cityFilterMode', 'selectedCities'] }, function (response) {
+    cityFilter = {
+        enabled: response.cityFilterEnabled || false,
+        mode: response.cityFilterMode,
+        selected: response.selectedCities
+    };
+
+    filterLoaded = true;
 });
 
 //called by visitTracker.js
@@ -15,7 +21,6 @@ function initPropertyFilter() {
     const filteredProperties = [];
 
     for (let i = 0; i < propertyDivs.length; i++) {
-        console.log(propertyDivs[i]);
         if (shouldFilterProperty(propertyDivs[i])) {
             filteredProperties.push(propertyDivs[i]);
         }
@@ -31,8 +36,6 @@ function shouldFilterProperty(propertyDiv) {
     const propertyCity = propertyTitle.split(' ').pop();
 
     const inFilter = cityFilter.selected.includes(propertyCity);
-
-    console.log(cityFilter.mode, inFilter, propertyCity, cityFilter.selected, propertyTitle);
 
     return cityFilter.mode === 'exclude' ? inFilter : !inFilter;
 }

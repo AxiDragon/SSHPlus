@@ -1,17 +1,28 @@
 const propertyUrls = ['https://www.sshxl.nl/nl/aanbod', 'https://www.sshxl.nl/en/rental-offer/long-stay'];
 
-let checkedPropertyTags = JSON.parse(localStorage.getItem('checkedPropertyTags')) || [];
+let checkedPropertyTags;
+chrome.runtime.sendMessage({ message: 'get', key: 'checkedPropertyTags' }, function (response) {
+    checkedPropertyTags = response.checkedPropertyTags || [];
 
-if (isCorrectUrl(window.location.href, offerUrls)) {
-    savePropertyUrl(window.location.href);
-}
+    if (isCorrectUrl(window.location.href, offerUrls)) {
+        savePropertyUrl(window.location.href);
+    }
+});
 
 document.addEventListener('hrefChanged', (e) => {
     if (isCorrectUrl(e.detail.href, propertyUrls)) {
         checkLoaded(isVisitTrackerLoaded, initVisitTracker)
     }
     if (isCorrectUrl(e.detail.href, offerUrls)) {
-        savePropertyUrl(e.detail.href);
+        if (checkedPropertyTags !== undefined) {
+            savePropertyUrl(e.detail.href);
+            return;
+        }
+
+        chrome.runtime.sendMessage({ message: 'get', key: 'checkedPropertyTags' }, function (response) {
+            checkedPropertyTags = response.checkedPropertyTags || [];
+            savePropertyUrl(e.detail.href);
+        });
     }
 });
 
@@ -73,6 +84,6 @@ function savePropertyUrl(url) {
 
     if (!checkedPropertyTags.includes(propertyTag)) {
         checkedPropertyTags.push(propertyTag);
-        localStorage.setItem('checkedPropertyTags', JSON.stringify(checkedPropertyTags));
+        chrome.runtime.sendMessage({ message: 'set', key: 'checkedPropertyTags', value: checkedPropertyTags });
     }
 }
