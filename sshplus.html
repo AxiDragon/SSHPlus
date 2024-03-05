@@ -8,36 +8,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
 </head>
 
 <body>
-    <img src="sshplus.png">
+    <img id="logo" src="sshplus.png">
     <div id="settings">
         <button id="reset-property">Clear seen properties</button>
-        <h2 style="margin-bottom: 0px;">City Filter</h2>
-        <label><input type="checkbox" id="enable-city-filter">Enabled</label>
-        <div id="city-filter">
-            <label for="filter-mode">Filter mode:</label>
-            <select id="filter-mode">
-                <option value="exclude">Exclude</option>
-                <option value="include">Include</option>
-            </select>
-            </br>
-            <label><input type="checkbox" value="Amersfoort"> Amersfoort</label>
-            </br>
-            <label><input type="checkbox" value="Bunnik"> Bunnik</label>
-            </br>
-            <label><input type="checkbox" value="Groningen"> Groningen</label>
-            </br>
-            <label><input type="checkbox" value="Utrecht"> Utrecht</label>
-            </br>
-            <label><input type="checkbox" value="Rotterdam"> Rotterdam</label>
-            </br>
-            <label><input type="checkbox" value="Tilburg"> Tilburg</label>
-            </br>
-            <label><input type="checkbox" value="Zeist"> Zeist</label>
-            </br>
-            <label><input type="checkbox" value="Zwolle"> Zwolle</label>
+        <h2 id="city-filter-heading" style="margin-bottom: 0px;">
+            <span class="material-symbols-rounded" id="city-filter-arrow">arrow_drop_down</span>
+            City Filter
+        </h2>
+        <div id="city-filter-container">
+            <label><input type="checkbox" id="enable-city-filter">Enabled</label>
+            <div id="city-filter-settings">
+                <label for="filter-mode">Filter mode:</label>
+                <select id="filter-mode">
+                    <option value="exclude">Exclude</option>
+                    <option value="include">Include</option>
+                </select>
+                </br>
+                <label><input type="checkbox" value="Amersfoort"> Amersfoort</label>
+                </br>
+                <label><input type="checkbox" value="Bunnik"> Bunnik</label>
+                </br>
+                <label><input type="checkbox" value="Groningen"> Groningen</label>
+                </br>
+                <label><input type="checkbox" value="Utrecht"> Utrecht</label>
+                </br>
+                <label><input type="checkbox" value="Rotterdam"> Rotterdam</label>
+                </br>
+                <label><input type="checkbox" value="Tilburg"> Tilburg</label>
+                </br>
+                <label><input type="checkbox" value="Zeist"> Zeist</label>
+                </br>
+                <label><input type="checkbox" value="Zwolle"> Zwolle</label>
+            </div>
         </div>
     </div>
 </body>

@@ -30,10 +30,16 @@ a {
 
 h2 {
     display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    font-size: 1.2em;
     font-weight: bold;
+}
+
+#city-filter-heading {
+    margin-left: 0px;
+    user-select: none;
+}
+
+#city-filter-arrow {
+    vertical-align: middle;
+    transition: transform .3s ease;
 }

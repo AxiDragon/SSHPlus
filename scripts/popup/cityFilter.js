@@ -1,9 +1,15 @@
 import { reload } from "./reloader.js";
 
-const cityFilter = document.getElementById('city-filter');
+const cityFilterHeading = document.getElementById('city-filter-heading');
+const cityFilterArrow = document.getElementById('city-filter-arrow');
+const cityFilterContainer = document.getElementById('city-filter-container');
+let displayed;
+
+const cityFilterSettings = document.getElementById('city-filter-settings');
 const enableCheckbox = document.getElementById('enable-city-filter');
 const filterMode = document.getElementById('filter-mode');
-const cityCheckboxes = cityFilter.querySelectorAll(':scope input[type="checkbox"]');
+
+const cityCheckboxes = cityFilterSettings.querySelectorAll(':scope input[type="checkbox"]');
 
 let initialized = false;
 
@@ -15,6 +21,14 @@ export function initCityFilter() {
 }
 
 function initializeListeners() {
+    cityFilterHeading.addEventListener('click', function () {
+        displayed = !displayed;
+
+        chrome.storage.sync.set({ cityFilterDisplayed: displayed });
+
+        updateDisplay();
+    });
+
     enableCheckbox.addEventListener('change', enableCheckboxChanged);
     filterMode.addEventListener('change', filterModeChanged);
 
@@ -26,6 +40,22 @@ function initializeListeners() {
 }
 
 function recoverSave() {
+    chrome.storage.sync.get(['cityFilterDisplayed'], function (result) {
+        if (result.cityFilterDisplayed === undefined) {
+            result.cityFilterDisplayed = true;
+        }
+
+        displayed = result.cityFilterDisplayed;
+
+        //force the arrow to rotate instantly
+        cityFilterArrow.style.transition = 'none';
+
+        updateDisplay();
+
+        cityFilterArrow.offsetHeight;
+        cityFilterArrow.style.transition = '';
+    });
+
     chrome.storage.sync.get(['cityFilterEnabled'], function (result) {
         if (result.cityFilterEnabled === undefined) {
             result.cityFilterEnabled = false;
@@ -34,9 +64,9 @@ function recoverSave() {
         enableCheckbox.checked = result.cityFilterEnabled;
 
         if (enableCheckbox.checked) {
-            cityFilter.style.display = 'block';
+            cityFilterSettings.style.display = 'block';
         } else {
-            cityFilter.style.display = 'none';
+            cityFilterSettings.style.display = 'none';
         }
     });
 
@@ -65,6 +95,17 @@ function tryReload() {
     }
 }
 
+function updateDisplay() {
+    if (displayed) {
+        cityFilterContainer.style.display = 'block';
+        cityFilterArrow.style.transform = 'rotate(0deg) translate(0, -3px)';
+    }
+    else {
+        cityFilterContainer.style.display = 'none';
+        cityFilterArrow.style.transform = 'rotate(-90deg)';
+    }
+}
+
 function updateSelectedCities() {
     const selectedCities = Array.from(cityCheckboxes)
         .filter((checkbox) => checkbox.checked)
@@ -87,8 +128,8 @@ function enableCheckboxChanged() {
     });
 
     if (enableCheckbox.checked) {
-        cityFilter.style.display = 'block';
+        cityFilterSettings.style.display = 'block';
     } else {
-        cityFilter.style.display = 'none';
+        cityFilterSettings.style.display = 'none';
     }
 }
