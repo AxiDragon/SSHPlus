@@ -46,9 +46,6 @@ function getDatedProperty(propertyDiv) {
         timeLeft = parseInt(numbers[0]) * 24 + parseInt(numbers[1]);
     }
 
-    console.log(propertyDiv);
-    console.log(timeLeft);
-
     return {
         property: propertyDiv,
         timeLeft: timeLeft //in hours

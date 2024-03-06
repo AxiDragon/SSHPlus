@@ -68,7 +68,8 @@
                 <label><input type="checkbox" value="No preference"> No preference</label>
             </div>
         </div>
-        <h2 id="date-sorter-header" style="margin-bottom: 0px;">
+        <h2 title="Sort properties based on how long you can respond on them." id="date-sorter-header"
+            style="margin-bottom: 0px;">
             <span class="material-symbols-rounded arrow" id="date-sorter-arrow">arrow_drop_down</span>
             Date Sorter
         </h2>
@@ -80,6 +81,14 @@
                 <option value="descending">Descending</option>
             </select>
         </div>
+        <h2 id="other-settings-header" style="margin-bottom: 0px;">
+            <span class="material-symbols-rounded arrow" id="other-settings-arrow">arrow_drop_down</span>
+            Other Settings
+        </h2>
+        <div id="other-settings-container">
+            <label><input title="Hide the purple consolation card on the long stay page." type="checkbox"
+                    id="hide-consolation-card"> Hide Consolation Card</label>
+        </div>
 </body>
 <script src="scripts/popup/reloader.js" type="module"></script>
 <script src="scripts/popup/onSSHChecker.js" type="module"></script>
@@ -88,6 +97,8 @@
 <script src="scripts/popup/genderFilterPopup.js" type="module"></script>
 <script src="scripts/popup/dateSorterPopup.js" type="module"></script>
 <script src="scripts/popup/propertyResetter.js" type="module"></script>
+<script src="scripts/popup/consolationCardHiderPopup.js" type="module"></script>
+<script src="scripts/popup/otherSettingsPopup.js" type="module"></script>
 <script src="scripts/popup/popup.js" type="module"></script>
 
 </html>

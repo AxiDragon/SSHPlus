@@ -25,6 +25,5 @@ function recoverSave() {
 }
 
 function sortModeChanged() {
-    console.log('sort mode changed to ' + dateSorterMode.value + ' mode.');
     chrome.storage.sync.set({ dateSorterMode: dateSorterMode.value }, reload);
 }

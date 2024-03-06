@@ -3,6 +3,7 @@ import { initPropertyResetter } from "./propertyResetter.js";
 import { initCityFilter } from "./cityFilterPopup.js";
 import { initGenderFilter } from "./genderFilterPopup.js";
 import { initDateSorter } from "./dateSorterPopup.js";
+import { initHideConsolationCard } from "./hideConsolationCardPopup.js";
 
 const settings = document.getElementById('settings');
 
@@ -23,4 +24,5 @@ async function init() {
     initCityFilter();
     initGenderFilter();
     initDateSorter();
+    initHideConsolationCard();
 }

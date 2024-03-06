@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "SSH+",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "background": {
         "service_worker": "scripts/background/storageManager.js"
     },
@@ -26,6 +26,7 @@
                 "scripts/content/offer.js",
                 "scripts/content/propertyPage.js",
                 "scripts/content/genderFilter.js",
+                "scripts/content/consolationCardHider.js",
                 "scripts/content/visitTracker.js",
                 "scripts/content/cityFilter.js",
                 "scripts/content/dateSorter.js",

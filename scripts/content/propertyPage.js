@@ -12,6 +12,7 @@ function isPropertyPageLoaded() {
 }
 
 function initPropertyPage() {
+    initConsolationCardHider();
     initVisitTracker();
     initCityFilter();
     initDateSorter();
