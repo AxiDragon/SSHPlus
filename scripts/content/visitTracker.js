@@ -45,7 +45,7 @@ function initVisitTracker() {
         markedProperties[i].parentNode.appendChild(markedProperties[i]);
     }
 
-    initPropertyFilter();
+    initCityFilter();
 }
 
 function processOffer(propertyDiv) {

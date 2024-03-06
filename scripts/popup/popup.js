@@ -1,6 +1,6 @@
 import { isOnSSH } from "./onSSHChecker.js";
 import { initPropertyResetter } from "./propertyResetter.js";
-import { initCityFilter } from "./cityFilter.js";
+import { initCityFilter } from "./cityFilterPopup.js";
 import { initGenderFilter } from "./genderFilterPopup.js";
 
 const settings = document.getElementById('settings');

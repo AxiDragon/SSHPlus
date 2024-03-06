@@ -11,7 +11,7 @@ chrome.runtime.sendMessage({ message: 'get', key: ['cityFilterEnabled', 'cityFil
 //called by visitTracker.js
 //cityFilter should be gotten from storage before this function is called
 //cause of SSH's loading time this should be fine
-function initPropertyFilter() {
+function initCityFilter() {
     if (!cityFilter.enabled)
         return;
 
