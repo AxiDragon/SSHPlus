@@ -54,13 +54,14 @@ function markAsVisited(propertyDiv) {
     statusText.innerText = seenText.getTranslation();
     statusText.style = `background: #fff;
     color: #6f2282;
-    border-radius: 2px;
     font-weight: 500;
     letter-spacing: .4px;
     text-transform: uppercase;
     z-index: 2;
     position: absolute;
     left: 20px;
+    top: 5px;
+    padding-bottom: 5px;
     font-family: "Work Sans", "Work Sans-fallback", Arial, sans-serif;`
 
     propertyDiv.querySelector('.card__header').appendChild(statusText);
