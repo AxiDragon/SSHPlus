@@ -21,10 +21,10 @@
             City Filter
         </h2>
         <div id="city-filter-container">
-            <label><input type="checkbox" id="enable-city-filter">Enabled</label>
+            <label><input type="checkbox" id="enable-city-filter"> Enabled</label>
             <div id="city-filter-settings">
-                <label for="filter-mode">Filter mode:</label>
-                <select id="filter-mode">
+                <label for="city-filter-mode">Filter mode:</label>
+                <select id="city-filter-mode">
                     <option value="exclude">Exclude</option>
                     <option value="include">Include</option>
                 </select>
@@ -46,11 +46,31 @@
                 <label><input type="checkbox" value="Zwolle"> Zwolle</label>
             </div>
         </div>
-    </div>
+        <h2 id="gender-filter-heading" style="margin-bottom: 0px;">
+            <span class="material-symbols-rounded" id="gender-filter-arrow">arrow_drop_down</span>
+            Gender Filter
+        </h2>
+        <div id="gender-filter-container">
+            <label><input type="checkbox" id="enable-gender-filter"> Enabled</label>
+            <div id="gender-filter-settings">
+                <label for="gender-filter-mode">Filter mode:</label>
+                <select id="gender-filter-mode">
+                    <option value="exclude">Exclude</option>
+                    <option value="include">Include</option>
+                </select>
+                </br>
+                <label><input type="checkbox" value="Male"> Male</label>
+                </br>
+                <label><input type="checkbox" value="Female"> Female</label>
+                </br>
+                <label><input type="checkbox" value="No preference"> No preference</label>
+            </div>
+        </div>
 </body>
 <script src="scripts/popup/reloader.js" type="module"></script>
 <script src="scripts/popup/onSSHChecker.js" type="module"></script>
 <script src="scripts/popup/cityFilter.js" type="module"></script>
+<script src="scripts/popup/genderFilterPopup.js" type="module"></script>
 <script src="scripts/popup/propertyResetter.js" type="module"></script>
 <script src="scripts/popup/popup.js" type="module"></script>
 

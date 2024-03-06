@@ -6,8 +6,6 @@ chrome.runtime.sendMessage({ message: 'get', key: ['cityFilterEnabled', 'cityFil
         mode: response.cityFilterMode,
         selected: response.selectedCities
     };
-
-    filterLoaded = true;
 });
 
 //called by visitTracker.js

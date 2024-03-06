@@ -1,6 +1,7 @@
 import { isOnSSH } from "./onSSHChecker.js";
 import { initPropertyResetter } from "./propertyResetter.js";
 import { initCityFilter } from "./cityFilter.js";
+import { initGenderFilter } from "./genderFilterPopup.js";
 
 const settings = document.getElementById('settings');
 
@@ -19,4 +20,5 @@ async function init() {
 
     initPropertyResetter();
     initCityFilter();
+    initGenderFilter();
 }
