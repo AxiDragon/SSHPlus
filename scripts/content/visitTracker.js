@@ -1,3 +1,8 @@
+let hideSeenProperties;
+chrome.runtime.sendMessage({ message: 'get', key: 'hideSeenProperties' }, function (response) {
+    hideSeenProperties = response.hideSeenProperties || false;
+});
+
 let checkedPropertyTags;
 chrome.runtime.sendMessage({ message: 'get', key: 'checkedPropertyTags' }, function (response) {
     checkedPropertyTags = response.checkedPropertyTags || [];
@@ -49,6 +54,10 @@ function processOffer(propertyDiv) {
 }
 
 function markAsVisited(propertyDiv) {
+    if (hideSeenProperties) {
+        propertyDiv.style.display = 'none';
+    }
+
     const statusText = document.createElement('div');
     statusText.classList.add('price-tag', 'tag--m');
     statusText.innerText = seenText.getTranslation();
