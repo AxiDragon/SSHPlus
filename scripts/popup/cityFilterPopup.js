@@ -1,7 +1,7 @@
 import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-new Dropdown('city', 'city-filter-heading', 'city-filter-container', 'city-filter-arrow');
+new Dropdown('city-filter');
 
 const enableCheckbox = document.getElementById('enable-city-filter');
 const cityFilterSettings = document.getElementById('city-filter-settings');

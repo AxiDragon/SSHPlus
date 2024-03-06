@@ -1,7 +1,7 @@
 import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-new Dropdown('gender', 'gender-filter-heading', 'gender-filter-container', 'gender-filter-arrow');
+new Dropdown('gender-filter');
 
 const enableCheckbox = document.getElementById('enable-gender-filter');
 const genderFilterSettings = document.getElementById('gender-filter-settings');

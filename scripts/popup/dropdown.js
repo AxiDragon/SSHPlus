@@ -1,9 +1,9 @@
 export class Dropdown {
-    constructor(name, headerID, contentID, arrowID) {
-        this.keyName = name + 'FilterDisplayed';
-        this.header = document.getElementById(headerID);
-        this.content = document.getElementById(contentID);
-        this.arrow = document.getElementById(arrowID);
+    constructor(name) {
+        this.keyName = name + 'Displayed';
+        this.header = document.getElementById(name + '-header');
+        this.content = document.getElementById(name + '-container');
+        this.arrow = document.getElementById(name + '-arrow');
 
         this.displayed = true;
 

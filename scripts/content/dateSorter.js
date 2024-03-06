@@ -1,5 +1,19 @@
+let sortMode;
+
+chrome.storage.sync.get(['dateSorterMode'], function (result) {
+    if (result.dateSorterMode === undefined) {
+        result.dateSorterMode = 'ascending';
+    }
+
+    sortMode = result.dateSorterMode;
+});
+
 //called by visitTracker.js
 function initDateSorter() {
+    if (sortMode === 'default') {
+        return;
+    }
+
     const propertyDivs = document.getElementsByClassName('card--property');
     const datedProperties = [];
 
@@ -43,6 +57,10 @@ function getDatedProperty(propertyDiv) {
 
 function sortProperties(datedProperties) {
     datedProperties.sort((a, b) => a.timeLeft - b.timeLeft);
+
+    if (sortMode === 'descending') {
+        datedProperties.reverse();
+    }
 
     for (let i = 0; i < datedProperties.length; i++) {
         datedProperties[i].property.parentNode.appendChild(datedProperties[i].property);
