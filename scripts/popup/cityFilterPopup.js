@@ -1,9 +1,7 @@
+import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-const cityFilterHeading = document.getElementById('city-filter-heading');
-const cityFilterArrow = document.getElementById('city-filter-arrow');
-const cityFilterContainer = document.getElementById('city-filter-container');
-let displayed;
+new Dropdown('city', 'city-filter-heading', 'city-filter-container', 'city-filter-arrow');
 
 const enableCheckbox = document.getElementById('enable-city-filter');
 const cityFilterSettings = document.getElementById('city-filter-settings');
@@ -17,14 +15,6 @@ export function initCityFilter() {
 }
 
 function initializeListeners() {
-    cityFilterHeading.addEventListener('click', function () {
-        displayed = !displayed;
-
-        chrome.storage.sync.set({ cityFilterDisplayed: displayed });
-
-        updateDisplay();
-    });
-
     enableCheckbox.addEventListener('change', enableCheckboxChanged);
     cityFilterMode.addEventListener('change', filterModeChanged);
 
@@ -36,22 +26,6 @@ function initializeListeners() {
 }
 
 function recoverSave() {
-    chrome.storage.sync.get(['cityFilterDisplayed'], function (result) {
-        if (result.cityFilterDisplayed === undefined) {
-            result.cityFilterDisplayed = true;
-        }
-
-        displayed = result.cityFilterDisplayed;
-
-        //force the arrow to rotate instantly
-        cityFilterArrow.style.transition = 'none';
-
-        updateDisplay();
-
-        cityFilterArrow.offsetHeight;
-        cityFilterArrow.style.transition = '';
-    });
-
     chrome.storage.sync.get(['cityFilterEnabled'], function (result) {
         if (result.cityFilterEnabled === undefined) {
             result.cityFilterEnabled = false;
@@ -83,17 +57,6 @@ function recoverSave() {
             checkbox.checked = result.selectedCities.includes(checkbox.value);
         }
     });
-}
-
-function updateDisplay() {
-    if (displayed) {
-        cityFilterContainer.style.display = 'block';
-        cityFilterArrow.style.transform = 'rotate(0deg) translate(0, -3px)';
-    }
-    else {
-        cityFilterContainer.style.display = 'none';
-        cityFilterArrow.style.transform = 'rotate(-90deg)';
-    }
 }
 
 function updateSelectedCities() {

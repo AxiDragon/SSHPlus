@@ -34,16 +34,11 @@ h2 {
     display: block;
     font-size: 1.2em;
     font-weight: bold;
-}
-
-#city-filter-heading,
-#gender-filter-heading {
     margin-left: 0px;
     user-select: none;
 }
 
-#city-filter-arrow,
-#gender-filter-arrow {
+.arrow {
     vertical-align: middle;
     transition: transform .3s ease;
 }

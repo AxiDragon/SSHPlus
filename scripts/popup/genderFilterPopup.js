@@ -1,9 +1,7 @@
+import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-const genderFilterHeading = document.getElementById('gender-filter-heading');
-const genderFilterArrow = document.getElementById('gender-filter-arrow');
-const genderFilterContainer = document.getElementById('gender-filter-container');
-let displayed;
+new Dropdown('gender', 'gender-filter-heading', 'gender-filter-container', 'gender-filter-arrow');
 
 const enableCheckbox = document.getElementById('enable-gender-filter');
 const genderFilterSettings = document.getElementById('gender-filter-settings');
@@ -17,16 +15,6 @@ export function initGenderFilter() {
 }
 
 function initializeListeners() {
-    genderFilterHeading.addEventListener('click', function () {
-        console.log('clicked!');
-
-        displayed = !displayed;
-
-        chrome.storage.sync.set({ genderFilterDisplayed: displayed });
-
-        updateDisplay();
-    });
-
     enableCheckbox.addEventListener('change', enableCheckboxChanged);
     genderFilterMode.addEventListener('change', filterModeChanged);
 
@@ -38,22 +26,6 @@ function initializeListeners() {
 }
 
 function recoverSave() {
-    chrome.storage.sync.get(['genderFilterDisplayed'], function (result) {
-        if (result.genderFilterDisplayed === undefined) {
-            result.genderFilterDisplayed = true;
-        }
-
-        displayed = result.genderFilterDisplayed;
-
-        //force the arrow to rotate instantly
-        genderFilterArrow.style.transition = 'none';
-
-        updateDisplay();
-
-        genderFilterArrow.offsetHeight;
-        genderFilterArrow.style.transition = '';
-    });
-
     chrome.storage.sync.get(['genderFilterEnabled'], function (result) {
         if (result.genderFilterEnabled === undefined) {
             result.genderFilterEnabled = false;
