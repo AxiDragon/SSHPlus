@@ -1,5 +1,3 @@
-const propertyUrls = ['https://www.sshxl.nl/nl/aanbod', 'https://www.sshxl.nl/en/rental-offer/long-stay'];
-
 let checkedPropertyTags;
 chrome.runtime.sendMessage({ message: 'get', key: 'checkedPropertyTags' }, function (response) {
     checkedPropertyTags = response.checkedPropertyTags || [];
@@ -10,9 +8,6 @@ chrome.runtime.sendMessage({ message: 'get', key: 'checkedPropertyTags' }, funct
 });
 
 document.addEventListener('hrefChanged', (e) => {
-    if (isCorrectUrl(e.detail.href, propertyUrls)) {
-        checkLoaded(isVisitTrackerLoaded, initVisitTracker)
-    }
     if (isCorrectUrl(e.detail.href, offerUrls)) {
         if (checkedPropertyTags !== undefined) {
             savePropertyUrl(e.detail.href);
@@ -26,15 +21,7 @@ document.addEventListener('hrefChanged', (e) => {
     }
 });
 
-function isVisitTrackerLoaded() {
-    const propertyDivs = document.getElementsByClassName('card--property');
-    return propertyDivs.length > 0;
-}
-
 function initVisitTracker() {
-    initCityFilter();
-    initDateSorter();
-
     const propertyDivs = document.getElementsByClassName('card--property');
     const markedProperties = [];
 
@@ -47,7 +34,6 @@ function initVisitTracker() {
     for (let i = 0; i < markedProperties.length; i++) {
         markedProperties[i].parentNode.appendChild(markedProperties[i]);
     }
-
 }
 
 function processOffer(propertyDiv) {
