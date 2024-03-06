@@ -32,6 +32,9 @@ function isVisitTrackerLoaded() {
 }
 
 function initVisitTracker() {
+    initCityFilter();
+    initDateSorter();
+
     const propertyDivs = document.getElementsByClassName('card--property');
     const markedProperties = [];
 
@@ -45,7 +48,6 @@ function initVisitTracker() {
         markedProperties[i].parentNode.appendChild(markedProperties[i]);
     }
 
-    initCityFilter();
 }
 
 function processOffer(propertyDiv) {
