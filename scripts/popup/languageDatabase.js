@@ -28,7 +28,9 @@ export const languageDatabase = {
         hideConsolationCard: ' Hide Consolation Card',
         hideConsolationCardTitle: 'Hide the purple consolation card on the long stay page.',
         hideSeenProperties: ' Hide Seen Accommodations',
-        hideSeenPropertiesTitle: 'Hide accommodations you have already viewed.'
+        hideSeenPropertiesTitle: 'Hide accommodations you have already viewed.',
+        popupLanguage: 'Popup Language:',
+        siteStandard: 'Site Standard'
     },
     nl: {
         enabled: ' Ingeschakeld',
@@ -59,6 +61,8 @@ export const languageDatabase = {
         hideConsolationCard: ' Verberg Paarse Kaart',
         hideConsolationCardTitle: 'Verberg de paarse kaart op de aanbod-pagina.',
         hideSeenProperties: ' Verberg Geziene Woonruimtes',
-        hideSeenPropertiesTitle: 'Verberg woonruimtes die je al hebt bekeken.'
+        hideSeenPropertiesTitle: 'Verberg woonruimtes die je al hebt bekeken.',
+        popupLanguage: 'Popup-taal:',
+        siteStandard: 'Site-standaard'
     }
 };

@@ -23,6 +23,13 @@ function translatePage(language) {
 }
 
 async function getLanguage() {
+    let language = await getLanguageFromStorage();
+
+    if (language !== 'site') {
+        //override language
+        return language;
+    }
+
     let url = await getUrl();
 
     if (url.includes('/en')) {
@@ -40,6 +47,18 @@ async function getUrl() {
             }
 
             resolve(tabs[0].url);
+        });
+    });
+}
+
+async function getLanguageFromStorage() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get('language', function (data) {
+            if (data.language === undefined) {
+                data.language = 'site';
+            }
+
+            resolve(data.language);
         });
     });
 }

@@ -7,6 +7,8 @@ import { initConsolationCardHider } from "./consolationCardHiderPopup.js";
 
 import { initOtherSettings } from "./otherSettingsPopup.js";
 import { initSeenPropertyHider } from "./seenPropertyHiderPopup.js";
+import { initLanguageSettings } from "./languageSettings.js";
+
 import { initLanguageProcessor } from "./languageProcessor.js";
 
 const settings = document.getElementById('settings');
@@ -25,6 +27,8 @@ async function init() {
     }
 
     await initLanguageProcessor();
+
+    initLanguageSettings();
 
     initCityFilter();
     initGenderFilter();
