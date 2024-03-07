@@ -32,11 +32,16 @@ async function getLanguage() {
 
     let url = await getUrl();
 
+    if (!url.includes('https://www.sshxl.nl/')) {
+        //not on SSH
+        return 'en';
+    }
+
     if (url.includes('/en')) {
         return 'en';
     }
 
-    return 'nl';
+    return 'en';
 }
 
 async function getUrl() {
