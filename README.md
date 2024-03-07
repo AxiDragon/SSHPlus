@@ -11,7 +11,7 @@ Chrome extension for [https://www.sshxl.nl/](https://www.sshxl.nl/) to facilitat
 ## Installation
 I'm hoping to put this on the Chrome Web Store, but until then:
 1. Unzip the files you downloaded at [Releases](https://github.com/AxiDragon/SSHPlus/releases)
-2. Visit chrome://extensions/in Google Chrome
+2. Visit chrome://extensions/ in Google Chrome
 3. Switch on 'Developer Mode' in the top-right
 4. Click 'Load Unpacked' and select the unzipped folder
 
