@@ -57,12 +57,14 @@ function recoverSave() {
     });
 
     chrome.storage.sync.get(['selectedGenders'], function (result) {
-        if (result.selectedgenders === undefined) {
-            result.selectedgenders = [];
+        if (result.selectedGenders === undefined) {
+            result.selectedGenders = [];
         }
 
+        console.log(result.selectedGenders);
         for (const checkbox of genderCheckboxes) {
-            checkbox.checked = result.selectedgenders.includes(checkbox.value);
+            console.log(checkbox.value);
+            checkbox.checked = result.selectedGenders.includes(checkbox.value);
         }
     });
 }
