@@ -6,3 +6,5 @@ Chrome extension for [https://www.sshxl.nl/](https://www.sshxl.nl/) to facilitat
 - Seen History: Mark accomodations which you have seen, or hide them altogether.
 - Date Sorting: Sort accomodations based on how long you may still respond to them.
 - Gender Filter: Add a warning when viewing an accomodation that isn't looking for your gender.
+
+This extension is not affiliated with SSH.
