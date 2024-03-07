@@ -26,6 +26,10 @@ function initDateSorter() {
     }
 
     sortProperties(datedProperties);
+
+    //move the consolation card to the end
+    const consolationCard = document.querySelector('.card--empty');
+    consolationCard.parentNode.appendChild(consolationCard);
 }
 
 function getDatedProperty(propertyDiv) {

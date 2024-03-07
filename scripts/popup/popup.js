@@ -25,7 +25,7 @@ async function init() {
     }
 
     await initLanguageProcessor();
-    initPropertyResetter();
+
     initCityFilter();
     initGenderFilter();
     initDateSorter();
@@ -33,4 +33,6 @@ async function init() {
     initOtherSettings();
     initConsolationCardHider();
     initSeenPropertyHider();
+
+    initPropertyResetter();
 }
