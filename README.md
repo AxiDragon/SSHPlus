@@ -15,6 +15,5 @@ I'm hoping to put this on the Chrome Web Store, but until then:
 3. Switch on 'Developer Mode' in the top-right
 4. Click 'Load Unpacked' and select the unzipped folder
 
----
-
-This Chrome extension was developed by axi* and is not affiliated with or endorsed by www.sshxl.nl or its creators. www.sshxl.nl is a registered trademark owned by SSH.
+> [!NOTE]
+> This Chrome extension was developed by axi* and is not affiliated with or endorsed by www.sshxl.nl or its creators. www.sshxl.nl is a registered trademark owned by SSH.
