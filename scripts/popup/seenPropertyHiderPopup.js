@@ -1,8 +1,9 @@
 import { reload } from "./reloader.js";
 
-const hideSeenProperties = document.getElementById('hide-seen-properties');
+let hideSeenProperties;
 
 export function initSeenPropertyHider() {
+    hideSeenProperties = document.getElementById('hide-seen-properties');
     recoverSave();
     initializeListeners();
 }

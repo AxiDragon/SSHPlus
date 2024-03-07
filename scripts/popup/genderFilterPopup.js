@@ -1,17 +1,26 @@
 import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-new Dropdown('gender-filter');
 
-const enableCheckbox = document.getElementById('enable-gender-filter');
-const genderFilterSettings = document.getElementById('gender-filter-settings');
-const genderFilterMode = document.getElementById('gender-filter-mode');
+let enableCheckbox;
+let genderFilterSettings;
+let genderFilterMode;
 
-const genderCheckboxes = genderFilterSettings.querySelectorAll(':scope input[type="checkbox"]');
+let genderCheckboxes;
 
 export function initGenderFilter() {
+    new Dropdown('gender-filter');
+
+    getElements();
     recoverSave();
     initializeListeners();
+}
+
+function getElements() {
+    enableCheckbox = document.getElementById('enable-gender-filter');
+    genderFilterSettings = document.getElementById('gender-filter-settings');
+    genderFilterMode = document.getElementById('gender-filter-mode');
+    genderCheckboxes = genderFilterSettings.querySelectorAll(':scope input[type="checkbox"]');
 }
 
 function initializeListeners() {

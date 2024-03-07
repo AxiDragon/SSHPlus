@@ -1,11 +1,12 @@
 import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-new Dropdown('date-sorter');
-
-const dateSorterMode = document.getElementById('date-sorter-mode');
+let dateSorterMode;
 
 export function initDateSorter() {
+    new Dropdown('date-sorter');
+
+    dateSorterMode = document.getElementById('date-sorter-mode');
     recoverSave();
     initializeListeners();
 }

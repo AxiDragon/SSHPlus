@@ -1,21 +1,32 @@
 import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-new Dropdown('city-filter');
-
-const enableCheckbox = document.getElementById('enable-city-filter');
-const cityFilterSettings = document.getElementById('city-filter-settings');
-const cityFilterMode = document.getElementById('city-filter-mode');
-
-const cityCheckboxes = cityFilterSettings.querySelectorAll(':scope input[type="checkbox"]');
+let enableCheckbox;
+let cityFilterSettings;
+let cityFilterMode;
+let cityCheckboxes;
 
 export function initCityFilter() {
+    new Dropdown('city-filter');
+
+    getElements();
     recoverSave();
     initializeListeners();
 }
 
+function getElements() {
+    enableCheckbox = document.getElementById('enable-city-filter');
+    cityFilterSettings = document.getElementById('city-filter-settings');
+    cityFilterMode = document.getElementById('city-filter-mode');
+    cityCheckboxes = cityFilterSettings.querySelectorAll(':scope input[type="checkbox"]');
+}
+
 function initializeListeners() {
-    enableCheckbox.addEventListener('change', enableCheckboxChanged);
+    console.log(enableCheckbox);
+    enableCheckbox.addEventListener('change', () => {
+        console.log(enableCheckbox);
+        enableCheckboxChanged();
+    });
     cityFilterMode.addEventListener('change', filterModeChanged);
 
     for (const checkbox of cityCheckboxes) {

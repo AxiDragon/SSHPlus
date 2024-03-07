@@ -4,7 +4,10 @@ import { initCityFilter } from "./cityFilterPopup.js";
 import { initGenderFilter } from "./genderFilterPopup.js";
 import { initDateSorter } from "./dateSorterPopup.js";
 import { initConsolationCardHider } from "./consolationCardHiderPopup.js";
+
+import { initOtherSettings } from "./otherSettingsPopup.js";
 import { initSeenPropertyHider } from "./seenPropertyHiderPopup.js";
+import { initLanguageProcessor } from "./languageProcessor.js";
 
 const settings = document.getElementById('settings');
 
@@ -21,10 +24,13 @@ async function init() {
         return;
     }
 
+    await initLanguageProcessor();
     initPropertyResetter();
     initCityFilter();
     initGenderFilter();
     initDateSorter();
+
+    initOtherSettings();
     initConsolationCardHider();
     initSeenPropertyHider();
 }

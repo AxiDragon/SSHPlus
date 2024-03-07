@@ -1,8 +1,10 @@
 import { reload } from "./reloader.js";
 
-const hideConsolationCard = document.getElementById('hide-consolation-card');
+let hideConsolationCard;
 
 export function initConsolationCardHider() {
+    hideConsolationCard = document.getElementById('hide-consolation-card');
+
     recoverSave();
     initializeListeners();
 }

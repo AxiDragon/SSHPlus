@@ -15,19 +15,16 @@
 <body>
     <img id="logo" src="sshplus.png">
     <div id="settings">
-        <button id="reset-property">Clear seen properties</button>
-        <h2 title="Filter properties based on the city they are in." id="city-filter-header"
-            style="margin-bottom: 0px;">
+        <h2 data-translate="cityFilter" title-translate="cityFilterTitle" id="city-filter-header">
             <span class="material-symbols-rounded arrow" id="city-filter-arrow">arrow_drop_down</span>
-            City Filter
         </h2>
         <div id="city-filter-container">
-            <label><input type="checkbox" id="enable-city-filter"> Enabled</label>
+            <label data-translate="enabled"><input type="checkbox" id="enable-city-filter"></label>
             <div id="city-filter-settings">
-                <label for="city-filter-mode">Filter mode:</label>
+                <label data-translate="filterMode" for="city-filter-mode"></label>
                 <select id="city-filter-mode">
-                    <option value="exclude">Exclude</option>
-                    <option value="include">Include</option>
+                    <option data-translate="exclude" value="exclude"></option>
+                    <option data-translate="include" value="include"></option>
                 </select>
                 </br>
                 <label><input type="checkbox" value="Amersfoort"> Amersfoort</label>
@@ -47,52 +44,55 @@
                 <label><input type="checkbox" value="Zwolle"> Zwolle</label>
             </div>
         </div>
-        <h2 title="Add a warning when viewing a room that isn't looking for your gender." id="gender-filter-header"
-            style="margin-bottom: 0px;">
+
+        <h2 data-translate="genderFilter" title-translate="genderFilterTitle" id="gender-filter-header">
             <span class="material-symbols-rounded arrow" id="gender-filter-arrow">arrow_drop_down</span>
-            Gender Filter
         </h2>
         <div id="gender-filter-container">
-            <label><input type="checkbox" id="enable-gender-filter"> Enabled</label>
+            <label data-translate="enabled"><input type="checkbox" id="enable-gender-filter"></label>
             <div id="gender-filter-settings">
-                <label for="gender-filter-mode">Filter mode:</label>
+                <label data-translate="filterMode" for="gender-filter-mode"></label>
                 <select id="gender-filter-mode">
-                    <option value="exclude">Exclude</option>
-                    <option value="include">Include</option>
+                    <option data-translate="exclude" value="exclude"></option>
+                    <option data-translate="include" value="include"></option>
                 </select>
                 </br>
-                <label><input type="checkbox" value="Male"> Male</label>
+                <label data-translate="male"><input type="checkbox" value="Male"></label>
                 </br>
-                <label><input type="checkbox" value="Female"> Female</label>
+                <label data-translate="female"><input type="checkbox" value="Female"></label>
                 </br>
-                <label><input type="checkbox" value="No preference"> No preference</label>
+                <label data-translate="noPreference"><input type="checkbox" value="No preference"></label>
             </div>
         </div>
-        <h2 title="Sort properties based on how long you can respond on them." id="date-sorter-header"
-            style="margin-bottom: 0px;">
+
+        <h2 data-translate="dateSorter" title-translate="dateSorterTitle" id="date-sorter-header">
             <span class="material-symbols-rounded arrow" id="date-sorter-arrow">arrow_drop_down</span>
-            Date Sorter
         </h2>
         <div id="date-sorter-container">
-            <label for="date-sorter-mode">Sort mode:</label>
+            <label data-translate="sortMode" for="date-sorter-mode"></label>
             <select id="date-sorter-mode">
-                <option value="ascending">Ascending</option>
-                <option value="default">Default</option>
-                <option value="descending">Descending</option>
+                <option data-translate="ascending" value="ascending"></option>
+                <option data-translate="default" value="default"></option>
+                <option data-translate="descending" value="descending"></option>
             </select>
         </div>
-        <h2 id="other-settings-header" style="margin-bottom: 0px;">
+
+        <h2 data-translate="otherSettings" id="other-settings-header">
             <span class="material-symbols-rounded arrow" id="other-settings-arrow">arrow_drop_down</span>
-            Other Settings
         </h2>
         <div id="other-settings-container">
-            <label><input title="Hide the purple consolation card on the long stay page." type="checkbox"
-                    id="hide-consolation-card"> Hide Consolation Card</label>
+            <label data-translate="hideConsolationCard" translate-title="hideConsolationCardTitle"><input
+                    type="checkbox" id="hide-consolation-card"></label>
             <br>
-            <label><input title="Hide properties that you have already seen" type="checkbox" id="hide-seen-properties">
-                Hide Seen Properties</label>
+            <label data-translate="hideSeenProperties" translate-title="hideSeenPropertiesTitle"><input type="checkbox"
+                    id="hide-seen-properties"></label>
         </div>
+        <br>
+
+        <button data-translate="clearSeenProperties" id="reset-property"></button>
 </body>
+<script src="scripts/popup/languageDatabase.js" type="module"></script>
+<script src="scripts/popup/languageProcessor.js" type="module"></script>
 <script src="scripts/popup/reloader.js" type="module"></script>
 <script src="scripts/popup/onSSHChecker.js" type="module"></script>
 <script src="scripts/popup/dropdown.js" type="module"></script>

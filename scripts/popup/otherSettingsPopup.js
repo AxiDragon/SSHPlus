@@ -1,3 +1,5 @@
 import { Dropdown } from "./dropDown.js";
 
-new Dropdown('other-settings');
+export function initOtherSettings() {
+    new Dropdown('other-settings');
+}
