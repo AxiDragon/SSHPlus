@@ -1,7 +1,6 @@
 import { Dropdown } from "./dropDown.js";
 import { reload } from "./reloader.js";
 
-
 let enableCheckbox;
 let genderFilterSettings;
 let genderFilterMode;
@@ -57,7 +56,7 @@ function recoverSave() {
         genderFilterMode.value = result.genderFilterMode;
     });
 
-    chrome.storage.sync.get(['selectedgenders'], function (result) {
+    chrome.storage.sync.get(['selectedGenders'], function (result) {
         if (result.selectedgenders === undefined) {
             result.selectedgenders = [];
         }
@@ -66,17 +65,6 @@ function recoverSave() {
             checkbox.checked = result.selectedgenders.includes(checkbox.value);
         }
     });
-}
-
-function updateDisplay() {
-    if (displayed) {
-        genderFilterContainer.style.display = 'block';
-        genderFilterArrow.style.transform = 'rotate(0deg) translate(0, -3px)';
-    }
-    else {
-        genderFilterContainer.style.display = 'none';
-        genderFilterArrow.style.transform = 'rotate(-90deg)';
-    }
 }
 
 function updateSelectedGenders() {

@@ -16,7 +16,7 @@ function initializeListeners() {
 function recoverSave() {
     chrome.storage.sync.get(['hideConsolationCard'], function (result) {
         if (result.hideConsolationCard === undefined) {
-            result.hideConsolationCard = true;
+            result.hideConsolationCard = false;
         }
 
         hideConsolationCard.checked = result.hideConsolationCard;

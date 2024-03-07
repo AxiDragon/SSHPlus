@@ -3,8 +3,8 @@ let genderFilter;
 chrome.runtime.sendMessage({ message: 'get', key: ['genderFilterEnabled', 'genderFilterMode', 'selectedGenders'] }, function (response) {
     genderFilter = {
         enabled: response.genderFilterEnabled || false,
-        mode: response.genderFilterMode,
-        selected: generateSelectedGenderArray(response.selectedGenders)
+        mode: response.genderFilterMode || 'exclude',
+        selected: generateSelectedGenderArray(response.selectedGenders) || []
     };
 });
 

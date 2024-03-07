@@ -3,8 +3,8 @@ let cityFilter;
 chrome.runtime.sendMessage({ message: 'get', key: ['cityFilterEnabled', 'cityFilterMode', 'selectedCities'] }, function (response) {
     cityFilter = {
         enabled: response.cityFilterEnabled || false,
-        mode: response.cityFilterMode,
-        selected: response.selectedCities
+        mode: response.cityFilterMode || 'exclude',
+        selected: response.selectedCities || []
     };
 });
 
