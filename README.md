@@ -7,4 +7,4 @@ Chrome extension for [https://www.sshxl.nl/](https://www.sshxl.nl/) to facilitat
 - Date Sorting: Sort accomodations based on how long you may still respond to them.
 - Gender Filter: Add a warning when viewing an accomodation that isn't looking for your gender.
 
-This extension is not affiliated with SSH.
+This Chrome extension was developed by axi* and is not affiliated with or endorsed by www.sshxl.nl or its creators. www.sshxl.nl is a registered trademark owned by SSH.
