@@ -22,9 +22,7 @@ function getElements() {
 }
 
 function initializeListeners() {
-    console.log(enableCheckbox);
     enableCheckbox.addEventListener('change', () => {
-        console.log(enableCheckbox);
         enableCheckboxChanged();
     });
     cityFilterMode.addEventListener('change', filterModeChanged);
