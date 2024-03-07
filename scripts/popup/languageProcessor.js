@@ -20,6 +20,13 @@ function translatePage(language) {
         const translatedText = languageDatabase[language][translationKey];
         element.setAttribute('title', translatedText);
     });
+
+    const linksToTranslate = document.querySelectorAll('[href-translate]');
+    linksToTranslate.forEach(element => {
+        const translationKey = element.getAttribute('href-translate');
+        const translatedText = languageDatabase[language][translationKey];
+        element.setAttribute('href', translatedText);
+    });
 }
 
 async function getLanguage() {

@@ -1,5 +1,7 @@
 export const languageDatabase = {
     en: {
+        siteLink: 'https://www.sshxl.nl/en',
+
         enabled: ' Enabled',
         sortMode: 'Sort mode:',
 
@@ -33,6 +35,8 @@ export const languageDatabase = {
         siteStandard: 'Site Standard'
     },
     nl: {
+        siteLink: 'https://www.sshxl.nl/nl',
+
         enabled: ' Ingeschakeld',
         sortMode: 'Sorteermodus:',
 
