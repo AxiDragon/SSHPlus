@@ -48,7 +48,7 @@ async function getLanguage() {
         return 'en';
     }
 
-    return 'en';
+    return 'nl';
 }
 
 async function getUrl() {
