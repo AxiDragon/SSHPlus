@@ -2,7 +2,7 @@ let hideConsolationCard;
 
 chrome.storage.sync.get(['hideConsolationCard'], function (result) {
     if (result.hideConsolationCard === undefined) {
-        result.hideConsolationCard = true;
+        result.hideConsolationCard = false;
     }
 
     hideConsolationCard = result.hideConsolationCard;
