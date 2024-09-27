@@ -9,7 +9,7 @@ Chrome extension for [https://www.sshxl.nl/](https://www.sshxl.nl/) to facilitat
 - Gender Filter: Add a warning when viewing an accomodation that isn't looking for your gender.
 
 ## Installation
-I'm hoping to put this on the Chrome Web Store, but until then:
+I'm not allowed to put it on the Google Chrome store, so you have to implement it manually. Yippee!
 1. Unzip the files you downloaded at [Releases](https://github.com/AxiDragon/SSHPlus/releases)
 2. Visit chrome://extensions/ in Google Chrome
 3. Switch on 'Developer Mode' in the top-right
